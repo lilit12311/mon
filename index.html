@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QR Love</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+  <style>
+    body {
+      background: #ffe6ec;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+      font-family: sans-serif;
+    }
+
+    .heart {
+      width: 250px;
+      height: 250px;
+      position: relative;
+      background: pink;
+      transform: rotate(-45deg);
+      margin-bottom: 20px;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 250px;
+      height: 250px;
+      position: absolute;
+      background: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -125px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 125px;
+      top: 0;
+    }
+
+    canvas {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="heart">
+    <canvas id="qr-code"></canvas>
+  </div>
+  <p>Scan me ❤️</p>
+
+  <script>
+    const qr = new QRious({
+      element: document.getElementById("qr-code"),
+      value: "https://lilit12311.github.io/labubu/",
+      size: 150,
+      background: 'white',
+      foreground: '#ff4d6d',
+    });
+  </script>
+</body>
+</html>
